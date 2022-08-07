@@ -9,9 +9,9 @@ import java.util.Map;
 public class Arrays {
 
     public static void main(String[] args) {
-        int[] a = {1, 6, 1, 6, 5,5,5,5,5,5,5,6};
+        int[] a = {6,5,5};
         System.out.println(majorityElement(a));
-        System.out.println(majorityElement2(a));
+//        System.out.println(majorityElement2(a));
         System.out.println(majorityElement3(a));
         System.out.println(morreVotingAlgo(a));
     }
@@ -35,27 +35,27 @@ public class Arrays {
         return -1;
     }
 
-    static int majorityElement2(int[] array) {    //O(nlogn)
-        java.util.Arrays.sort(array);
-        int pointer = 0;
-        int count = 0;
-        int count1=0;
-        int res = 0;
-
-        for (int i = 1; i < array.length; i++) {
-            if (array[pointer] == array[i]) count++;
-            if (array[pointer] != array[i] || (count>0 && i==array.length-1)){
-                if(count > count1){
-                    count1 = count;
-                    res = array[pointer];
-                }
-                pointer = i;
-                count=0;
-            }
-        }
-        if(array.length/2 < count1+1) return res;
-        return -1;
-    }
+//    static int majorityElement2(int[] array) {    //O(nlogn)
+//        java.util.Arrays.sort(array);
+//        int pointer = 0;
+//        int count = 0;
+//        int count1=0;
+//        int res = 0;
+//
+//        for (int i = 1; i < array.length; i++) {
+//            if (array[pointer] == array[i]) count++;
+//            if (array[pointer] != array[i] || (count>0 && i==array.length-1)){
+//                if(count > count1){
+//                    count1 = count;
+//                    res = array[pointer];
+//                }
+//                pointer = i;
+//                count=0;
+//            }
+//        }
+//        if(array.length/2 < count1+1) return res;
+//        return -1;
+//    }
 
     static int majorityElement3(int[] array){
         Map<Integer,Integer> map = new HashMap<>();
@@ -92,13 +92,13 @@ public class Arrays {
                 }
             }
         }
-        if(count>0) {
+//        if(count>0) {
             int x=0;
             for (int j : array) {
                 if (j == array[point]) x++;
             }
             if(x > array.length/2) return array[point];
-        }
+//        }
 
         return -1;
     }
